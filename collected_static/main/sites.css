@@ -1,0 +1,45 @@
+.message {
+    font-weight: 600;
+    color: red;
+    padding-left: 100px
+}
+
+.navbar-header {
+    text-align: left;
+    color: DodgerBlue;
+    padding: 10px;
+}
+
+.nav-link {
+    color: black;
+}
+
+.dropdown-toggle {
+    padding-left: 15px;
+    padding-top: 5px;
+    color: black;
+}
+
+#ServiceItems li a {
+    text-align: left;
+    padding-left: 20px;
+    margin: 1mm;
+    color: black;
+}
+
+.ul.errorlist {
+    margin: 0;
+    padding: 0;
+}
+.errorlist li {
+    border: 1px solid red;
+    color: red;
+    background: rgba(255, 0, 0, 0.15);
+    list-style-position: inside;
+    display: block;
+    font-size: 1.2em;
+    margin: 0 0 3px;
+    padding: 4px 5px;
+    text-align: left;    
+    border-radius: 3px;
+}

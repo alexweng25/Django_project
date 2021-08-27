@@ -1,0 +1,25 @@
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+}
+
+.navbar-header {
+    font-weight: 800;
+    color: #007bff;
+    text-align: center;
+    padding: 10px
+}
+
+.sidebar-sticky .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+}
