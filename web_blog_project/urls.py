@@ -24,6 +24,7 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Mainpage.urls')),  # app:首頁
+    path('', include('user_control.urls'))  # app: 使用者
 ]
 
 if not settings.DEBUG:
