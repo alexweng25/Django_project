@@ -1,2 +1,6 @@
 {
+    "prettier.printWidth": 100,
+    "[django-html]": {
+        "editor.formatOnSave": false
+    }
 }
