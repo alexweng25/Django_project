@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<title>Chicony home page</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		{% load static %}	
+		<link rel="stylesheet" type="text/css" href="{% static 'main/sites.css' %}" />
+		<style>
+				body {
+						background-color: lightyellow;
+				}
+				em {
+						color: LightSeaGreen;
+				}
+		</style>
+	</head>
+	
+	<body>
+	<div class="container-fluid">
+		<div class="row">
+			{% comment %} <div class="list-group list-group-flush col-lg-2 d-none d-lg-block bg-light">
+				<a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
+				<a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+				<a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+				<a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+			</div> {% endcomment %}
+			<nav class="col-lg-2 d-none d-lg-block bg-light sidebar">
+			<div class="nav flex-column nav-pills">
+				<div class="navbar-header" ><h4>Chicony Power</h4></div>
+				<a class="nav-link" href="{% url 'index'%}">Home</a>
+				<a class="nav-link" href="{% url 'Mainpage'%}">Project</a>
+				<a class="nav-link" href="#">Contact</a>
+				<a class="dropdown-toggle" href="#ServiceItems" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="false">Services</a>      
+				<ul class="collapse list-unstyled" id="ServiceItems">       
+					<li><a href="#">Design</a></li>       
+					<li><a href="#">Development</a></li>       
+					<li><a href="#">Consulting</a></li>
+				</ul>
+			</div>
+			</nav>
+			<main class="col-lg xl-sm-aut px-0" role="main">
+				<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+				<div class="container-fluid">
+					<a href="" class="navbar-brand">Chicony MES</a>
+					<form class="navbar-form navbar-righ">
+					{% if  request.session.is_login %}
+						<a href="{% url 'userprofile' %}" class="btn btn-link mr-2">
+						<i class='fas fa-user-circle'></i> {{ request.session.user_name }}</button>
+						<a href="{% url 'userlogout' %}" class="btn btn-link my-2 my-sm-0" role="button">logout
+						<i class='fas fa-share-square'></i></a>
+					{% else %}
+						<a href="{% url 'userlogin' %}" class="btn btn-success mr-2" role="button">login
+						<i class='fas fa-user-circle'></i></a>
+						<a href="{% url 'userregister' %}" class="btn btn-link my-2 my-sm-0" role="button">register
+						<i class='fas fa-user-plus'></i></a>
+					{% endif %}
+					</form>
+				</div>
+				</nav>	
+
+				<div class="table-responsive-xl mx-2 my-2">
+					<table class="table table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Project ID</th>
+								<th scope="col">Project Name</th>
+								<th scope="col">Created Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for post in post_list %}
+							<tr>							
+								<td>{{ post.id }}</td>
+								<td>{{ post.title }}</td>
+								<td>{{ post.created_at }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<br> <br>
+				<div class="message" >{{ current_time|date:"Y/m/d D" }} {{ current_time|time:"H:i" }}.</div>
+			</main>		
+		</div>
+	</div>
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>						
+	</body>
+</html>

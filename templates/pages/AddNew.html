@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group col-md-6">
+            <label>{{ form.title.label }}</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>{{ form.content.label }}</label>
+            {{ form.content }}
+        </div>
+
+        <div class="form-group col-md-6">
+            <label>{{ form.location.label }}</label>
+            {{ form.location }}
+        </div>
+
+        <div class="form-group col-md-2">
+            <input type="submit" class="btn btn-success" style="margin-top:30px;" value="儲存">
+        </div>
+       
+    </form>
+ 
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>{{ form.title.label }}</th>
+                <th>{{ form.content.label }}</th>
+                <th>{{ form.location.label }}</th>
+                <th>選項</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in post_list %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>{{ post.location }}</td>
+                    <td>
+                        <a href="{% url 'Update' post.id %}" class="btn btn-info">修改</a>
+                        <a href="{% url 'Delete' post.id %}" class="btn btn-danger">刪除</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

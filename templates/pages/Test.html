@@ -1,0 +1,66 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://static.pureexample.com/js/flot/excanvas.min.js"></script>
+<script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
+ 
+<!-- CSS -->
+<style type="text/css">
+#flotcontainer {
+    width: 600px;
+    height: 150px;
+    text-align: center;
+    margin: 0 auto;
+}
+</style>
+
+ 
+<!-- Javascript -->
+<script type="text/javascript">
+$(document).ready(function(){   
+    var data = [];
+ 
+    for (var i = 0; i < 10; i += 0.5){        
+        data.push([i, Math.tan(i)]);
+    }
+ 
+    var options = {
+        series: {
+                   lines: { show: true },
+                   points: { show: true }
+               }
+    };
+ 
+    $.plot($("#flotcontainer"), 
+                [
+                    {
+                    data:data,points:{symbol: "circle"}
+                    }
+                ],
+                options);
+ 
+});
+</script>
+ 
+<!-- HTML -->
+<div id="flotcontainer"></div>
+<div class="btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary">
+    <input type="checkbox" checked autocomplete="off"> Checked
+    </label>
+
+    <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+    </label>
+
+    <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa fa-angle-down fa-lg menu__icon--open"></i>
+        <i class="fa fa-angle-up fa-lg menu__icon--close"></i>
+        Button with data-target
+        </button>
+    </p>	
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+        Test
+        </div>
+    </div>
+</div>	
